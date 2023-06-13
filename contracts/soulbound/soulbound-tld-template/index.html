@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4GC5P1M00S"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-4GC5P1M00S');</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.738198728920">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 2.4.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Soulbound TLD contract | Punk Domains Docs</title>
+    <meta name="title" content="Soulbound TLD contract | Punk Domains Docs">
+    <meta name="description" content="The Soulbound TLD contract is almost identical to the Flexi TLD contract, except that it does not allow domain transfers beyong minting and burning." />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://docs.punk.domains/contracts/soulbound/soulbound-tld-template/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://docs.punk.domains/contracts/soulbound/soulbound-tld-template/">
+    <meta property="og:title" content="Soulbound TLD contract | Punk Domains Docs">
+    <meta property="og:description" content="The Soulbound TLD contract is almost identical to the Flexi TLD contract, except that it does not allow domain transfers beyong minting and burning.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://docs.punk.domains/contracts/soulbound/soulbound-tld-template/">
+    <meta property="twitter:title" content="Soulbound TLD contract | Punk Domains Docs">
+    <meta property="twitter:description" content="The Soulbound TLD contract is almost identical to the Flexi TLD contract, except that it does not allow domain transfers beyong minting and burning.">
+
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../../static/favicon.ico" rel="icon" />
+    <link href="../../../resources/css/retype.css?v=2.4.0.738198728920" rel="stylesheet" />
+
+    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.738198728920" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.738198728920" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.738198728920" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between grow pr-6 md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
+                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../../static/pictogram_black.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../../static/pictogram_white.png">
+                            </span>
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Punk Domains</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://punk.domains/" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <path fill-rule="evenodd" d="M3 3.25c0-.966.784-1.75 1.75-1.75h5.5a.75.75 0 010 1.5h-5.5a.25.25 0 00-.25.25v17.5c0 .138.112.25.25.25h5.5a.75.75 0 010 1.5h-5.5A1.75 1.75 0 013 20.75V3.25zm16.006 9.5l-3.3 3.484a.75.75 0 001.088 1.032l4.5-4.75a.75.75 0 000-1.032l-4.5-4.75a.75.75 0 00-1.088 1.032l3.3 3.484H10.75a.75.75 0 000 1.5h8.256z"/>
+                                        </g>
+                                    </svg>
+                                    <span>Go to Punk Domains app</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://discord.gg/8dSrwrAQeu" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <path fill-rule="evenodd" d="M3 3.25c0-.966.784-1.75 1.75-1.75h5.5a.75.75 0 010 1.5h-5.5a.25.25 0 00-.25.25v17.5c0 .138.112.25.25.25h5.5a.75.75 0 010 1.5h-5.5A1.75 1.75 0 013 20.75V3.25zm16.006 9.5l-3.3 3.484a.75.75 0 001.088 1.032l4.5-4.75a.75.75 0 000-1.032l-4.5-4.75a.75.75 0 00-1.088 1.032l3.3 3.484H10.75a.75.75 0 000 1.5h8.256z"/>
+                                        </g>
+                                    </svg>
+                                    <span>Discord</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://twitter.com/PunkDomains" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <path fill-rule="evenodd" d="M3 3.25c0-.966.784-1.75 1.75-1.75h5.5a.75.75 0 010 1.5h-5.5a.25.25 0 00-.25.25v17.5c0 .138.112.25.25.25h5.5a.75.75 0 010 1.5h-5.5A1.75 1.75 0 013 20.75V3.25zm16.006 9.5l-3.3 3.484a.75.75 0 001.088 1.032l4.5-4.75a.75.75 0 000-1.032l-4.5-4.75a.75.75 0 00-1.088 1.032l3.3 3.484H10.75a.75.75 0 000 1.5h8.256z"/>
+                                        </g>
+                                    </svg>
+                                    <span>Twitter</span>
+                                </a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://blog.punk.domains/" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                        <g fill="currentColor">
+                                            <path fill-rule="evenodd" d="M3 3.25c0-.966.784-1.75 1.75-1.75h5.5a.75.75 0 010 1.5h-5.5a.25.25 0 00-.25.25v17.5c0 .138.112.25.25.25h5.5a.75.75 0 010 1.5h-5.5A1.75 1.75 0 013 20.75V3.25zm16.006 9.5l-3.3 3.484a.75.75 0 001.088 1.032l4.5-4.75a.75.75 0 000-1.032l-4.5-4.75a.75.75 0 00-1.088 1.032l3.3 3.484H10.75a.75.75 0 000 1.5h8.256z"/>
+                                        </g>
+                                    </svg>
+                                    <span>Blog</span>
+                                </a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+        
+                            <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                            style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                        </div>
+        
+                        <!-- Mobile search button mock -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placehokder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button mock -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+                </div>
+            
+                <div class="pl-6 mb-4 mt-1">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://punk.domains/" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M3 3.25c0-.966.784-1.75 1.75-1.75h5.5a.75.75 0 010 1.5h-5.5a.25.25 0 00-.25.25v17.5c0 .138.112.25.25.25h5.5a.75.75 0 010 1.5h-5.5A1.75 1.75 0 013 20.75V3.25zm16.006 9.5l-3.3 3.484a.75.75 0 001.088 1.032l4.5-4.75a.75.75 0 000-1.032l-4.5-4.75a.75.75 0 00-1.088 1.032l3.3 3.484H10.75a.75.75 0 000 1.5h8.256z"/>
+                                                </g>
+                                            </svg>
+                                            <span>Go to Punk Domains app</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://discord.gg/8dSrwrAQeu" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M3 3.25c0-.966.784-1.75 1.75-1.75h5.5a.75.75 0 010 1.5h-5.5a.25.25 0 00-.25.25v17.5c0 .138.112.25.25.25h5.5a.75.75 0 010 1.5h-5.5A1.75 1.75 0 013 20.75V3.25zm16.006 9.5l-3.3 3.484a.75.75 0 001.088 1.032l4.5-4.75a.75.75 0 000-1.032l-4.5-4.75a.75.75 0 00-1.088 1.032l3.3 3.484H10.75a.75.75 0 000 1.5h8.256z"/>
+                                                </g>
+                                            </svg>
+                                            <span>Discord</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://twitter.com/PunkDomains" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M3 3.25c0-.966.784-1.75 1.75-1.75h5.5a.75.75 0 010 1.5h-5.5a.25.25 0 00-.25.25v17.5c0 .138.112.25.25.25h5.5a.75.75 0 010 1.5h-5.5A1.75 1.75 0 013 20.75V3.25zm16.006 9.5l-3.3 3.484a.75.75 0 001.088 1.032l4.5-4.75a.75.75 0 000-1.032l-4.5-4.75a.75.75 0 00-1.088 1.032l3.3 3.484H10.75a.75.75 0 000 1.5h8.256z"/>
+                                                </g>
+                                            </svg>
+                                            <span>Twitter</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://blog.punk.domains/" target="_blank">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
+                                                <g fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M3 3.25c0-.966.784-1.75 1.75-1.75h5.5a.75.75 0 010 1.5h-5.5a.25.25 0 00-.25.25v17.5c0 .138.112.25.25.25h5.5a.75.75 0 010 1.5h-5.5A1.75 1.75 0 013 20.75V3.25zm16.006 9.5l-3.3 3.484a.75.75 0 001.088 1.032l4.5-4.75a.75.75 0 000-1.032l-4.5-4.75a.75.75 0 00-1.088 1.032l3.3 3.484H10.75a.75.75 0 000 1.5h8.256z"/>
+                                                </g>
+                                            </svg>
+                                            <span>Blog</span>
+                                        </a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="grow min-w-0 px-6 md:px-16">
+                        <main class="relative pt-6 pb-16">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                
+                                <!-- Page content  -->
+<doc-anchor-target id="soulbound-tld-contract" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#soulbound-tld-contract">#</doc-anchor-trigger>
+        <span>Soulbound TLD contract</span>
+    </h1>
+</doc-anchor-target>
+<p>The Soulbound TLD contract is almost identical to the Flexi TLD contract, except that it does not allow domain transfers beyong minting and burning. Soulbound TLD is another name for a non-transferable TLD.</p>
+<p><strong>See the Soulbound TLD contract here:</strong> <a href="https://github.com/punk-domains/punk-contracts/blob/main/contracts/factories/soulbound/SoulboundPunkTLD.sol">https://github.com/punk-domains/punk-contracts/blob/main/contracts/factories/soulbound/SoulboundPunkTLD.sol</a></p>
+<p><strong>ABI (the same as for the Flexi TLD):</strong> <a href="https://github.com/punk-domains/punk-abi/blob/main/FlexiTldAbi.json">https://github.com/punk-domains/punk-abi/blob/main/FlexiTldAbi.json</a></p>
+<doc-anchor-target id="data">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#data">#</doc-anchor-trigger>
+        <span>Data</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="domain-struct">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#domain-struct">#</doc-anchor-trigger>
+        <span>Domain struct</span>
+    </h3>
+</doc-anchor-target>
+<p>Each domain name is represented as a struct:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">struct Domain {
+	string name;
+	uint256 tokenId;
+	address holder;
+	string data;
+}</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><code v-pre>name</code>: Domain name that goes before the TLD name. For example: <code v-pre>techie</code> in <code v-pre>techie.wagmi</code>.</li>
+<li><code v-pre>tokenId</code>: Each domain is an NFT, which means it has a unique token ID. ID numbers increment for every newly minted domain starting with <code v-pre>0</code>.</li>
+<li><code v-pre>holder</code>: The address that owns the domain. Domain also resolves to this address.</li>
+<li><code v-pre>data</code> (optional): Domain can also hold custom data in a stringified JSON object, for example: <code v-pre>{&quot;url&quot;: &quot;https://my.homepage&quot;, &quot;image&quot;: {&quot;address&quot;: &quot;0x123...orUrl&quot;, &quot;tokenId&quot;: 22}, &quot;description&quot;: &quot;Some text&quot;, &quot;twitter&quot;: &quot;@techie1239&quot;, &quot;friends&quot;: [&quot;0x123...&quot;]}</code>.</li>
+</ul>
+<p>Read more about custom data <a href="custom-data.md">here</a>.</p>
+<blockquote>
+<p>Note that in Flexi/Soulbound contracts the Domain struct is defined in the <a href="https://github.com/punk-domains/punk-contracts/blob/main/contracts/interfaces/IBasePunkTLD.sol">IBasePunkTLD interface</a>.</p>
+</blockquote>
+<doc-anchor-target id="read-methods">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#read-methods">#</doc-anchor-trigger>
+        <span>Read methods</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="metadataaddress">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#metadataaddress">#</doc-anchor-trigger>
+        <span><code v-pre>metadataAddress</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>The address of the smart contract that holds metadata for the domain.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function metadataAddress() public view returns(address)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Metadata contract address</li>
+</ul>
+<doc-anchor-target id="minter">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#minter">#</doc-anchor-trigger>
+        <span><code v-pre>minter</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>The address of the smart contract that is allowed to mint domains even if <code v-pre>buyingEnabled</code> is set to <code v-pre>false</code>. Useful if you want to have minting logic in a separate smart contract.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function minter() public view returns(address)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Minter contract address</li>
+</ul>
+<doc-anchor-target id="royaltyfeeupdater">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#royaltyfeeupdater">#</doc-anchor-trigger>
+        <span><code v-pre>royaltyFeeUpdater</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>The address of the entity (either EOA or a smart contract) which is allowed to update the royalty fee. Example: This can be a  multisig wallet (like Safe) where two parties need to agree on the royalty fee change.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function royaltyFeeUpdater() public view returns(address)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Royalty Fee Updater address</li>
+</ul>
+<doc-anchor-target id="royaltyfeereceiver">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#royaltyfeereceiver">#</doc-anchor-trigger>
+        <span><code v-pre>royaltyFeeReceiver</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>The address which receives a royalty fee on each domain mint.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function royaltyFeeReceiver() public view returns(address)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Royalty Fee Receiver address</li>
+</ul>
+<doc-anchor-target id="buyingenabled">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#buyingenabled">#</doc-anchor-trigger>
+        <span><code v-pre>buyingEnabled</code></span>
+    </h3>
+</doc-anchor-target>
+<p>If this value is set to <code v-pre>false</code>, only the TLD owner can mint new domains (for free). Otherwise anyone can mint new domains (but paid).</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function buyingEnabled() public view returns(bool)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Boolean value (<code v-pre>true</code> or <code v-pre>false</code>)</li>
+</ul>
+<doc-anchor-target id="buyingdisabledforever">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#buyingdisabledforever">#</doc-anchor-trigger>
+        <span><code v-pre>buyingDisabledForever</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>If this value is set to <code v-pre>false</code>, the TLD owner can enable or disable domain buying at any time they want.</p>
+<p>But if the value is set to <code v-pre>true</code>, buying domains is disabled forever, and can never be turned on again (in that case even minter and owner cannot mint new domains anymore).</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function buyingDisabledForever() public view returns(bool)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Boolean value (<code v-pre>true</code> or <code v-pre>false</code>)</li>
+</ul>
+<doc-anchor-target id="metadatafrozen">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#metadatafrozen">#</doc-anchor-trigger>
+        <span><code v-pre>metadataFrozen</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>If this value is set to <code v-pre>false</code>, the TLD owner can change the metadata address at any time they want.</p>
+<p>But if the value is set to <code v-pre>true</code>, the metadata address is frozen and can never be changed again.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function metadataFrozen() public view returns(bool)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Boolean value (<code v-pre>true</code> or <code v-pre>false</code>)</li>
+</ul>
+<doc-anchor-target id="totalsupply">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#totalsupply">#</doc-anchor-trigger>
+        <span><code v-pre>totalSupply</code></span>
+    </h3>
+</doc-anchor-target>
+<p>The total number of minted domains.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function totalSupply() public view returns(uint256)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>The total number of minted domains</li>
+</ul>
+<doc-anchor-target id="idcounter">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#idcounter">#</doc-anchor-trigger>
+        <span><code v-pre>idCounter</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>Counter for settings token IDs. In all Flexi/Soulbound TLD contracts, token IDs must start with 1, not 0 (mainly to enable the burn feature to properly work).</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function idCounter() public view returns(uint256)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>The next token ID number</li>
+</ul>
+<doc-anchor-target id="price">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#price">#</doc-anchor-trigger>
+        <span><code v-pre>price</code></span>
+    </h3>
+</doc-anchor-target>
+<p>Returns the price to mint a new domain.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function price() public view returns(uint256)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Domain price in wei</li>
+</ul>
+<doc-anchor-target id="royalty">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#royalty">#</doc-anchor-trigger>
+        <span><code v-pre>royalty</code></span>
+    </h3>
+</doc-anchor-target>
+<p>For every newly minted (paid) domain name a royalty payment is taken and sent to the Royalty Fee Receiver.</p>
+<p>Only Royalty Fee Updater can change the royalty amount.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function royalty() public view returns(uint256)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Royalty fee in bips</li>
+</ul>
+<doc-anchor-target id="referral">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#referral">#</doc-anchor-trigger>
+        <span><code v-pre>referral</code></span>
+    </h3>
+</doc-anchor-target>
+<p>A TLD can decide to enable referral fees for each domain mint.</p>
+<p>By default the referral fee is set to 1000 bips (10%). If the owner does not want to allow referral fees, they need to set the referral fee to 0.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function royalty() public view returns(uint256)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Referral fee in bips</li>
+</ul>
+<doc-anchor-target id="namemaxlength">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#namemaxlength">#</doc-anchor-trigger>
+        <span><code v-pre>nameMaxLength</code></span>
+    </h3>
+</doc-anchor-target>
+<p>Returns the maximum length of a domain name.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function nameMaxLength() public view returns(uint256)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>The number of characters that a domain name can have at maximum</li>
+</ul>
+<doc-anchor-target id="domains">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#domains">#</doc-anchor-trigger>
+        <span><code v-pre>domains</code></span>
+    </h3>
+</doc-anchor-target>
+<p>Returns the domain struct data that belong to the entered domain name.</p>
+<p>Input:</p>
+<ul>
+<li>Domain name</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function domains(string) public view returns(Domain memory)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Domain struct data</li>
+</ul>
+<doc-anchor-target id="domainidsnames">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#domainidsnames">#</doc-anchor-trigger>
+        <span><code v-pre>domainIdsNames</code></span>
+    </h3>
+</doc-anchor-target>
+<p>Returns the domain name that belongs to the entered token ID.</p>
+<p>Input:</p>
+<ul>
+<li>Token ID</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function domainIdsNames(uint256) public view returns(string memory)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Domain name</li>
+</ul>
+<doc-anchor-target id="defaultnames">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#defaultnames">#</doc-anchor-trigger>
+        <span><code v-pre>defaultNames</code></span>
+    </h3>
+</doc-anchor-target>
+<p>Returns the domain name that the holder defined as their &quot;default&quot; for that specific TLD.</p>
+<p>Input:</p>
+<ul>
+<li>User address</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function defaultNames(address) public view returns(string memory)</code></pre>
+</doc-codeblock></div>
+<p>This may be useful for social networks and games where user has multiple domain names under the same TLD.</p>
+<p>Output:</p>
+<ul>
+<li>Domain name</li>
+</ul>
+<doc-anchor-target id="getdomainholder">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#getdomainholder">#</doc-anchor-trigger>
+        <span><code v-pre>getDomainHolder</code></span>
+    </h3>
+</doc-anchor-target>
+<p>Returns the domain holder&#x27;s address. If no one owns the domain (yet), the returned address is the <code v-pre>0x0</code> address.</p>
+<p>Input:</p>
+<ul>
+<li>Domain name</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function getDomainHolder(string memory) public view returns(address)</code></pre>
+</doc-codeblock></div>
+<p>This is useful for checking whether a domain name has been already taken or not.</p>
+<p>Output:</p>
+<ul>
+<li>Domain holder&#x27;s address</li>
+</ul>
+<doc-anchor-target id="getdomaindata">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#getdomaindata">#</doc-anchor-trigger>
+        <span><code v-pre>getDomainData</code></span>
+    </h3>
+</doc-anchor-target>
+<p>Returns the domain holder&#x27;s <strong>custom</strong> data. Note that this is different from the <code v-pre>domains</code> call which returns all domain struct data, not just the custom data string.</p>
+<p>Input:</p>
+<ul>
+<li>Domain name</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function getDomainData(string memory) public view returns(string memory)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Domain holder&#x27;s custom data as a stringified JSON object.</li>
+</ul>
+<doc-anchor-target id="tokenuri">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tokenuri">#</doc-anchor-trigger>
+        <span><code v-pre>tokenURI</code></span>
+    </h3>
+</doc-anchor-target>
+<p>This function calls the Metadata contract and gets back domain/NFT metadata (each domain is an ERC-721 NFT).</p>
+<p>Input:</p>
+<ul>
+<li>Token ID</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function tokenURI(uint256) public view override returns (string memory)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<ul>
+<li>Domain metadata as string (either base64-encoded or an URL)</li>
+</ul>
+<doc-anchor-target id="write-methods">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#write-methods">#</doc-anchor-trigger>
+        <span>Write methods</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="burn">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#burn">#</doc-anchor-trigger>
+        <span><code v-pre>burn</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>This function allows the domain owner to burn the domain. A burned domain can be minted again.</p>
+<p>Input:</p>
+<ul>
+<li>Domain name</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function burn(string calldata _domainName) external</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="editdefaultdomain">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#editdefaultdomain">#</doc-anchor-trigger>
+        <span><code v-pre>editDefaultDomain</code></span>
+    </h3>
+</doc-anchor-target>
+<p>Through this function, a user can set one of their domains as their default domain (within the TLD that&#x27;s defined by that contract, of course).</p>
+<p>Input:</p>
+<ul>
+<li>Domain name to be set as default</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function editDefaultDomain(string calldata _domainName) external</code></pre>
+</doc-codeblock></div>
+<p>Emitted events:</p>
+<ul>
+<li><code v-pre>DefaultDomainChanged</code> event</li>
+</ul>
+<doc-anchor-target id="editdata">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#editdata">#</doc-anchor-trigger>
+        <span><code v-pre>editData</code></span>
+    </h3>
+</doc-anchor-target>
+<p>Function where user can edit custom data. Thread carefully, so that data is not accidentally deleted.</p>
+<p>Input:</p>
+<ul>
+<li>Domain name</li>
+<li>Data (stringified JSON object)</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function editData(string calldata _domainName, string calldata _data) external</code></pre>
+</doc-codeblock></div>
+<p>Emitted events:</p>
+<ul>
+<li><code v-pre>DataChanged</code> event</li>
+</ul>
+<doc-anchor-target id="mint">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#mint">#</doc-anchor-trigger>
+        <span><code v-pre>mint</code></span>
+    </h3>
+</doc-anchor-target>
+<p>Function to mint a new domain for a specific address (owner). Note that both TLD owner and minter can call this function even if public minting is disabled.</p>
+<p>Input:</p>
+<ul>
+<li>Domain name</li>
+<li>Domain (future) owner</li>
+<li>Referrer</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function mint(
+    string memory _domainName,
+    address _domainHolder,
+    address _referrer
+  ) external payable nonReentrant returns(uint256)</code></pre>
+</doc-codeblock></div>
+<p>Emitted events:</p>
+<ul>
+<li><code v-pre>DomainCreated</code> event</li>
+</ul>
+<doc-anchor-target id="owner-methods">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#owner-methods">#</doc-anchor-trigger>
+        <span>Owner methods</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="changemetadataaddress">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#changemetadataaddress">#</doc-anchor-trigger>
+        <span><code v-pre>changeMetadataAddress</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>Owner can change the address of the metadata contract (unless metadata address is frozen forever).</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function changeMetadataAddress(address _metadataAddress) external onlyOwner</code></pre>
+</doc-codeblock></div>
+<p>Input:</p>
+<ul>
+<li><code v-pre>_metadataAddress</code>: Metadata contract address</li>
+</ul>
+<doc-anchor-target id="changeminter">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#changeminter">#</doc-anchor-trigger>
+        <span><code v-pre>changeMinter</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>Owner can change the minter address. Minter can be either an EOA address, or a contract.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function changeMinter(address _minter) external onlyOwner</code></pre>
+</doc-codeblock></div>
+<p>Input:</p>
+<ul>
+<li><code v-pre>_minter</code>: Minter address</li>
+</ul>
+<doc-anchor-target id="changenamemaxlength">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#changenamemaxlength">#</doc-anchor-trigger>
+        <span><code v-pre>changeNameMaxLength</code></span>
+    </h3>
+</doc-anchor-target>
+<p>TLD owner can change max length of newly minted domain names. Does not work retroactively.</p>
+<p>Input:</p>
+<ul>
+<li>Maximum length</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function changeNameMaxLength(uint256 _maxLength) external onlyOwner</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="changeprice">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#changeprice">#</doc-anchor-trigger>
+        <span><code v-pre>changePrice</code></span>
+    </h3>
+</doc-anchor-target>
+<p>TLD owner can change domain minting price.</p>
+<p>Input:</p>
+<ul>
+<li>Price in wei</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function changePrice(uint256 _price) external onlyOwner</code></pre>
+</doc-codeblock></div>
+<p>Emitted events:</p>
+<ul>
+<li><code v-pre>TldPriceChanged</code> event</li>
+</ul>
+<doc-anchor-target id="changereferralfee">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#changereferralfee">#</doc-anchor-trigger>
+        <span><code v-pre>changeReferralFee</code></span>
+    </h3>
+</doc-anchor-target>
+<p>TLD owner can change the referral fee. The referral fee is in basis points (0 =&lt; fee &lt; 5000 bps).</p>
+<p>Input:</p>
+<ul>
+<li>Referral fee in bps</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function changeReferralFee(uint256 _referral) external onlyOwner</code></pre>
+</doc-codeblock></div>
+<p>Emitted events:</p>
+<ul>
+<li><code v-pre>ReferralFeeChanged</code> event</li>
+</ul>
+<doc-anchor-target id="disablebuyingforever">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#disablebuyingforever">#</doc-anchor-trigger>
+        <span><code v-pre>disableBuyingForever</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>TLD owner can stop domain minting forever. After this call, no one can mint new domains, not even owner or minter.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function disableBuyingForever() external onlyOwner</code></pre>
+</doc-codeblock></div>
+<p>Emitted events:</p>
+<ul>
+<li><code v-pre>MintingDisabledForever</code> event</li>
+</ul>
+<doc-anchor-target id="freezemetadata">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#freezemetadata">#</doc-anchor-trigger>
+        <span><code v-pre>freezeMetadata</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>TLD owner can freeze the metadata forever. After this call, no one can change the metadata address anymore, not even the owner.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function freezeMetadata() external onlyOwner</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="togglebuyingdomains">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#togglebuyingdomains">#</doc-anchor-trigger>
+        <span><code v-pre>toggleBuyingDomains</code></span>
+    </h3>
+</doc-anchor-target>
+<p>TLD owner can start/stop public domain minting.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function toggleBuyingDomains() external onlyOwner</code></pre>
+</doc-codeblock></div>
+<p>Emitted events:</p>
+<ul>
+<li><code v-pre>DomainBuyingToggle</code> event</li>
+</ul>
+<doc-anchor-target id="royalty-fee-methods">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#royalty-fee-methods">#</doc-anchor-trigger>
+        <span>Royalty fee methods</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="changeroyalty">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#changeroyalty">#</doc-anchor-trigger>
+        <span><code v-pre>changeRoyalty</code></span>
+    </h3>
+</doc-anchor-target>
+<p>Royalty fee updater can change the royalty fee for minting a domain. Royalty fee is in basis points (bips).</p>
+<p>Input:</p>
+<ul>
+<li>Royalty fee in bps</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function changeRoyalty(uint256 _royalty) external</code></pre>
+</doc-codeblock></div>
+<p>Emitted events:</p>
+<ul>
+<li><code v-pre>TldRoyaltyChanged</code> event</li>
+</ul>
+<doc-anchor-target id="changeroyaltyfeereceiver">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#changeroyaltyfeereceiver">#</doc-anchor-trigger>
+        <span><code v-pre>changeRoyaltyFeeReceiver</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>The existing royalty fee receiver can change the royalty fee receiver address.</p>
+<p>Input:</p>
+<ul>
+<li>Address</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function changeRoyaltyFeeReceiver(address _newReceiver) external</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="changeroyaltyfeeupdater">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#changeroyaltyfeeupdater">#</doc-anchor-trigger>
+        <span><code v-pre>changeRoyaltyFeeUpdater</code>*</span>
+    </h3>
+</doc-anchor-target>
+<p>The existing royalty fee updater can change the royalty fee updater address.</p>
+<p>Input:</p>
+<ul>
+<li>Address</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-solidity"><code v-pre class="language-solidity">function changeRoyaltyFeeUpdater(address _newUpdater) external</code></pre>
+</doc-codeblock></div>
+<hr />
+<p>*Methods marked with a star are specific for the Flexi/Soulbound contract. They are not obligatory for other contracts of that type.</p>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results />
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../contracts/soulbound/soulbound-tld-factory/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Soulbound TLD factory contract</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../contracts/forbidden-tlds/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Forbidden and already-​used TL​Ds contract</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2023. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script>window.__DOCS__ = { "title": "Soulbound TLD contract", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+</body>
+</html>
